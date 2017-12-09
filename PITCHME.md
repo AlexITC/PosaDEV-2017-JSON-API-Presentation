@@ -825,14 +825,7 @@ object Market {
     case BITTREX.string => BITTREX
     case BITSO.string => BITSO
   }
-
   ...
-
-  implicit val reads: Reads[Market] = {
-    JsPath.read[String].collect(JsonValidationError("error.market.unknown"))(fromStringPF)
-  }
-
-  implicit val writes: Writes[Market] = Writes[Market] { market => JsString(market.string) }
 }
 ```
 
@@ -926,7 +919,6 @@ private def renderCreateFixedPriceAlertError(
   case UnknownBookError =>
     val message = messagesApi("error.book.unknown")
     FieldValidationError("book", message)
-  ...
 }
 ```
 
@@ -935,7 +927,8 @@ private def renderCreateFixedPriceAlertError(
 ### Thanks
 
 - Github: AlexITC (https://github.com/AlexITC)
-- Linkedn: https://www.linkedin.com/in/alexis-hernandez/
+- Linkedin: https://www.linkedin.com/in/alexis-hernandez/
+- Meetup: https://www.meetup.com/Remote-Functional-Programmers-Meetup/
+- Meetup: goo.gl/vi6Yvg
 
 - We are hiring!
-
